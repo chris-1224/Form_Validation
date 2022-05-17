@@ -6,12 +6,12 @@
 
 function validateName(){
     var name = document.getElementById('contact-name').value;
-
+    
     if(name.length == 0){
         nameError.innerHTML = 'Name is Required';
         return false;
     }
-    if(!name.match(/^[A-Za-z]*\s{1}[A-Za-z]*$/)){
+    if(!name.match(/^[A-Za-z]*\s[A-Za-z][^0-9]*$/)){
         nameError.innerHTML = 'Write full name';
         return false;
     }
@@ -29,7 +29,7 @@ function validatePhone(){
         phoneError.innerHTML = 'Phone no should be 10 digits';
         return false;
     }
-    if(!phone.match(/^[0-9]{10}$/)){
+    if(!phone.match(/^[8 9][0-9]{9}$/)){
         phoneError.innerHTML = 'Only Numbers';
         return false;
     }
