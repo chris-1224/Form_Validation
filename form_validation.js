@@ -1,7 +1,8 @@
  var nameError = document.getElementById("name-error");
  var phoneError = document.getElementById("phone-error");
  var emailError = document.getElementById("email-error");
- var messageError = document.getElementById("message-error");
+//  var messageError = document.getElementById("message-error");
+ var passwordError = document.getElementById("password-error");
  var SubmitError = document.getElementById("Submit-error");
 
 function validateName(){
@@ -11,9 +12,9 @@ function validateName(){
         nameError.innerHTML = 'Name is Required';
         return false;
     }
-    if(!name.match(/^[A-Za-z]*\s[A-Za-z][^0-9]*$/)){
+    if(!name.match(/^[A-Za-z]*[A-Za-z]*$/)){
         nameError.innerHTML = 'Write full name';
-        return false;
+        return false; 
     }
     nameError.innerHTML = '<i class="fas fa-check-circle"></i>';
     return true;
@@ -29,7 +30,7 @@ function validatePhone(){
         phoneError.innerHTML = 'Phone no should be 10 digits';
         return false;
     }
-    if(!phone.match(/^[8 9][0-9]{9}$/)){
+    if(!phone.match(/^[0-9]{10}$/)){
         phoneError.innerHTML = 'Only Numbers';
         return false;
     }
@@ -50,18 +51,22 @@ function validateEmail(){
     emailError.innerHTML = '<i class="fas fa-check-circle"></i>';
     return true;
 }
-function validateMessage(){
-    var message = document.getElementById('contact-message').value;
-    var required = 30;
-    var left = required - message.length;
 
-    if(left >0){
-        messageError.innerHTML = left + 'more characters required';
+function validatePassword(){
+    var password = document.getElementById('password-a').value;
+
+    if (password.length == 0){
+        passwordError.innerHTML = 'Password Required';
         return false;
     }
-    messageError.innerHTML = '<i class="fas fa-check-circle"></i>';
+    if(!password.match(/^(?=.*[0-9])(?=.*[A-Z])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{3,16}$/)){
+        passwordError.innerHTML = 'Password should contain 1 uppercase 1 lowercase 1 special and 1 numeric characters ';
+        return false;
+    }
+    passwordError.innerHTML = '<i class="fas fa-check-circle"></i>';
     return true;
 }
+
 function validateForm(){
     if(!validateName() || !validatePhone() || !validateEmail() || !validateMessage()){
         SubmitError.style.display = 'block';

@@ -29,7 +29,7 @@
         </div>
 
         <div class="input-group">
-          <label>Phone No.</label>
+          <label>Mobile No</label>
           <input
             type="tel"
             placeholder="123 456 7890"
@@ -51,15 +51,29 @@
         </div>
 
         <div class="input-group">
-          <label>Your Message</label>
-          <textarea
-            rows="5"
-            placeholder="Enter your message"
-            id="contact-message"
-            onkeyup="validateMessage()"
-          ></textarea>
-          <span id="message-error"></span>
+          <label>Password</label>
+          <input
+            type="Password"
+            placeholder="Enter Password"
+            id="password-a"
+            onkeyup="validatePassword()"
+          />
+          <span id="password-correct"></span>
         </div>
+        <span id="password-error"></span>
+
+        <div class="input-group">
+          <label>Confirm Password</label>
+          <input
+            type="Password"
+            placeholder="ReEnter Password"
+            id="password-b"
+            onkeyup="validateConfirmPassword()"
+          />
+          <span id="password-correct"></span>
+        </div>
+        <span id="password-error"></span>
+
         <button onclick="return validateForm()">Submit</button>
         <span id="Submit-error"></span>
       </form>
