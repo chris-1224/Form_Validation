@@ -1,18 +1,18 @@
  var nameError = document.getElementById("name-error");
  var phoneError = document.getElementById("phone-error");
  var emailError = document.getElementById("email-error");
-//  var messageError = document.getElementById("message-error");
  var passwordError = document.getElementById("password-error");
+ var confpasswordError = document.getElementById("confpassword-error");
  var SubmitError = document.getElementById("Submit-error");
 
-function validateName(){
+function validateName(event){
     var name = document.getElementById('contact-name').value;
-    
+    console.log("EVENT",event.target.value);
     if(name.length == 0){
         nameError.innerHTML = 'Name is Required';
         return false;
     }
-    if(!name.match(/^[A-Za-z]*[A-Za-z]*$/)){
+    if(!name.match(/^[A-Za-z]*\s[A-Za-z]*$/)){
         nameError.innerHTML = 'Write full name';
         return false; 
     }
@@ -51,21 +51,38 @@ function validateEmail(){
     emailError.innerHTML = '<i class="fas fa-check-circle"></i>';
     return true;
 }
-
 function validatePassword(){
     var password = document.getElementById('password-a').value;
 
-    if (password.length == 0){
+    if(password.length == 0){
         passwordError.innerHTML = 'Password Required';
         return false;
     }
     if(!password.match(/^(?=.*[0-9])(?=.*[A-Z])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{3,16}$/)){
-        passwordError.innerHTML = 'Password should contain 1 uppercase 1 lowercase 1 special and 1 numeric characters ';
+        passwordError.innerHTML = 'Password ';
         return false;
     }
-    passwordError.innerHTML = '<i class="fas fa-check-circle"></i>';
+     passwordError.innerHTML = '<i class="fas fa-check-circle"></i>';
+     return true;
+}
+
+function validateConfirmPassword(){
+
+    var password = document.getElementById('password-a').value;
+    var confpass = document.getElementById('password-b').value;
+
+    if(confpass.length == ''){
+        confpasswordError.innerHTML = 'Enter to confirm password ';
+        return false;
+    }
+    if(confpass != password){
+        confpasswordError.innerHTML = 'Password does not match';
+        return false;
+    }
+    confpasswordError.innerHTML = '<i class="fas fa-check-circle"></i>';
     return true;
 }
+
 
 function validateForm(){
     if(!validateName() || !validatePhone() || !validateEmail() || !validateMessage()){

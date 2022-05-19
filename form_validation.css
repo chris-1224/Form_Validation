@@ -76,12 +76,11 @@ form button{
     font-size: 14px;
     color: red;
 }
+
 #password-error{
     color:red;
 }
-#password-correct{
-    color: seagreen;
-}
+
 #Submit-error{
     color: red;
 }

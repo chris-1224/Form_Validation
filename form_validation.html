@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Form Validation</title>
     <link rel="stylesheet" href="./form_validation.css" />
-    <link rel="stylesheet" href="style.css" />
+    <!-- <link rel="stylesheet" href="style.css" /> -->
     <script
       src="https://kit.fontawesome.com/c4254e24a8.js"
       crossorigin="anonymous"
@@ -23,7 +23,7 @@
             type="text"
             placeholder="Enter your name"
             id="contact-name"
-            onkeyup="validateName()"
+            onkeyup="validateName(event)"
           />
           <span id="name-error"></span>
         </div>
@@ -31,6 +31,7 @@
         <div class="input-group">
           <label>Mobile No</label>
           <input
+            maxlength="10"
             type="tel"
             placeholder="123 456 7890"
             id="contact-phone"
@@ -39,6 +40,7 @@
           <span id="phone-error"></span>
         </div>
 
+        <!-- EMAIL ID CHECK -->
         <div class="input-group">
           <label>Email Id</label>
           <input
@@ -50,6 +52,7 @@
           <span id="email-error"></span>
         </div>
 
+        <!-- Password Validation -->
         <div class="input-group">
           <label>Password</label>
           <input
@@ -58,10 +61,10 @@
             id="password-a"
             onkeyup="validatePassword()"
           />
-          <span id="password-correct"></span>
+          <span id="password-error"></span>
         </div>
-        <span id="password-error"></span>
 
+        <!-- CONFIRM PASSWORD -->
         <div class="input-group">
           <label>Confirm Password</label>
           <input
@@ -70,9 +73,8 @@
             id="password-b"
             onkeyup="validateConfirmPassword()"
           />
-          <span id="password-correct"></span>
+          <span id="confpassword-error"></span>
         </div>
-        <span id="password-error"></span>
 
         <button onclick="return validateForm()">Submit</button>
         <span id="Submit-error"></span>
